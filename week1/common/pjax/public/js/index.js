@@ -44,3 +44,7 @@ window.addEventListener('popstate', () => {
 // HTML 문서가 완전히 구문 분석되고 모든 지연 스크립트가 다운로드 되고 실행될 때 발생
 // 처음엔 Home 컴포넌트 렌더링
 window.addEventListener('DOMContentLoaded', () => render());
+
+window.onpopstate = (e) => {
+  console.log(e.state);
+};
