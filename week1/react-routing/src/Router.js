@@ -1,16 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
-import Home from './Home';
-import List from './List';
-import Item from './Item';
-import About from './About';
+import Home from './components/Home';
+import List from './components/List';
+import Item from './components/Item';
+import About from './components/About';
 
 const Router = () => {
   return (
     <Routes>
       <Route path='/' element={<Home />} />
-      <Route path='/list' element={<List />}>
-        <Route path=':itemId' element={<Item />} />
-      </Route>
+      <Route path='/list' element={<List />} />
+      <Route path='/list/:itemId' element={<Item />} />
       <Route path='/about' element={<About />} />
     </Routes>
   );
