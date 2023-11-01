@@ -1,5 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import Page from './Page';
+import { useRecoilState } from 'recoil';
+import { pageAtom } from '../atom/pageAtom';
+import style from './List.module.css';
 
 const list = Array(49)
   .fill()
@@ -8,36 +12,38 @@ const lastPage = Math.ceil(list.length / 5) - 1;
 const limit = 5;
 
 const List = () => {
-  const [page, setPage] = useState(0);
-  const [currentPageList, setCurrentPageList] = useState([]);
+  const [page, setPage] = useRecoilState(pageAtom);
+
+  const navigate = useNavigate();
 
   const onPrevClick = () => {
     if (page > 0) {
+      navigate(`/list/page/${page - 1}`);
       setPage(page - 1);
     }
   };
   const onNextClick = () => {
     if (page < lastPage) {
+      navigate(`/list/page/${page + 1}`);
       setPage(page + 1);
     }
   };
 
-  useEffect(() => {
-    setCurrentPageList(list.slice(page * limit, page * limit + limit));
-  }, [page]);
-
   return (
     <>
-      <ul>
-        {currentPageList.map((item) => (
-          <li key={item}>
-            <Link to={`/list/${item}`}>제목 {item}</Link>
-          </li>
-        ))}
-      </ul>
+      <Routes>
+        <Route
+          path='/page/:page'
+          element={<Page list={list} page={page} limit={limit} />}
+        />
+      </Routes>
 
-      <button onClick={onPrevClick}>이전</button>
-      <button onClick={onNextClick}>다음</button>
+      <button onClick={onPrevClick} className={style.prev_next_button}>
+        이전
+      </button>
+      <button onClick={onNextClick} className={style.prev_next_button}>
+        다음
+      </button>
     </>
   );
 };

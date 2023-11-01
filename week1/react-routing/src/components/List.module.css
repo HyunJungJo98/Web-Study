@@ -1,0 +1,12 @@
+.prev_next_button {
+  font-size: 0.8rem;
+  border-radius: 5px;
+  margin-right: 10px;
+  padding: 10px;
+  background-color: rgb(212, 212, 212);
+}
+
+.prev_next_button:hover {
+  background-color: rgb(105, 105, 105);
+  color: white;
+}

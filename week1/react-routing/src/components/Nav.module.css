@@ -3,4 +3,6 @@
 }
 .nav_button {
   margin-right: 10px;
+  text-decoration: none;
+  color: blue;
 }
