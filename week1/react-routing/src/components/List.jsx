@@ -8,8 +8,8 @@ import style from './List.module.css';
 const list = Array(49)
   .fill()
   .map((_, i) => i + 1);
-const lastPage = Math.ceil(list.length / 5) - 1;
 const limit = 5;
+const lastPage = Math.ceil(list.length / limit) - 1;
 
 const List = () => {
   const [page, setPage] = useRecoilState(pageAtom);

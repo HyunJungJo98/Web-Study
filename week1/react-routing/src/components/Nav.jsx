@@ -14,7 +14,7 @@ const Nav = () => {
   };
 
   return (
-    <div className={style.nav}>
+    <nav className={style.nav}>
       <Link to='/' className={style.nav_button}>
         Home
       </Link>
@@ -24,7 +24,7 @@ const Nav = () => {
       <Link to='/about' className={style.nav_button}>
         About
       </Link>
-    </div>
+    </nav>
   );
 };
 
