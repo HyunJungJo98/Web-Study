@@ -10,3 +10,5 @@ document.body.appendChild(div);
 div.innerHTML = getCurrentTime();
 
 printNum(num);
+
+console.log('hi');
