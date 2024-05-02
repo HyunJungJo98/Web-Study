@@ -1,1 +1,0 @@
-(()=>{"use strict";const e=document.createElement("div");document.body.appendChild(e),e.innerHTML=(()=>{const e=new Date;return`${e.getHours()}:${e.getMinutes()}:${e.getSeconds()}`})(),console.log(10),console.log("hi")})();
