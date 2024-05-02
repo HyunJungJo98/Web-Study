@@ -1,6 +1,7 @@
 import { getCurrentTime } from './utils.js';
 import sky from '../assets/sky.png';
 import Button from './components/Button.js';
+import Section from './components/Section.js';
 
 const num = 10;
 const printNum = (num) => {
@@ -17,6 +18,9 @@ document.body.appendChild(img);
 
 const button = new Button('button');
 button.render();
+
+const section = new Section('section');
+section.render();
 
 printNum(num);
 
