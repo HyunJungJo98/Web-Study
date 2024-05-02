@@ -19,4 +19,17 @@ module.exports = {
       serveIndex: true,
     },
   },
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpe?g|gif|svg|webp)$/i,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[contenthash].[ext]',
+          },
+        },
+      },
+    ],
+  },
 };

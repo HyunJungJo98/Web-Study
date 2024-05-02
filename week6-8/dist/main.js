@@ -10,13 +10,23 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./assets/sky.png":
+/*!************************!*\
+  !*** ./assets/sky.png ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"sky.70c87155f31b4d709c74d5b5be5a5896.png\");\n\n//# sourceURL=webpack://week6/./assets/sky.png?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils.js */ \"./src/utils.js\");\n\r\n\r\nconst num = 10;\r\nconst printNum = (num) => {\r\n  console.log(num);\r\n};\r\n\r\nconst div = document.createElement('div');\r\ndocument.body.appendChild(div);\r\ndiv.innerHTML = (0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.getCurrentTime)();\r\n\r\nprintNum(num);\r\n\r\nconsole.log('hi');\r\n\n\n//# sourceURL=webpack://week6/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils.js */ \"./src/utils.js\");\n/* harmony import */ var _assets_sky_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/sky.png */ \"./assets/sky.png\");\n\r\n\r\n\r\nconst num = 10;\r\nconst printNum = (num) => {\r\n  console.log(num);\r\n};\r\n\r\nconst div = document.createElement('div');\r\ndocument.body.appendChild(div);\r\ndiv.innerHTML = (0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.getCurrentTime)();\r\n\r\nconst img = document.createElement('img');\r\nimg.setAttribute('src', _assets_sky_png__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\r\ndocument.body.appendChild(img);\r\n\r\nprintNum(num);\r\n\r\nconsole.log('hi');\r\n\n\n//# sourceURL=webpack://week6/./src/index.js?");
 
 /***/ }),
 
@@ -83,6 +93,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		__webpack_require__.p = "./dist/";
 /******/ 	})();
 /******/ 	
 /************************************************************************/
