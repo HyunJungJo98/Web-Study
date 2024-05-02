@@ -7,7 +7,7 @@ module.exports = {
     // output: './dist/bundle.js' 와 같음
     filename: 'main.js',
     path: path.resolve(__dirname + '/dist'),
-    publicPath: '/dist',
+    publicPath: './dist/',
   },
   devServer: {
     port: 8080,
