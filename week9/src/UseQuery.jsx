@@ -14,10 +14,9 @@ const UseQuery = () => {
       ).json();
     },
     staleTime: 1000 * 10, // 10초
-    suspense: true,
   });
 
-  return <div>{data.name}</div>;
+  return <div>{data ? data.name : 'Loading'}</div>;
 };
 
 export default UseQuery;
