@@ -1,8 +1,9 @@
-import { useMutation } from '@tanstack/react-query';
-import React, { useEffect, useState } from 'react';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import React from 'react';
 
 const UseMutation = () => {
-  const [text, setText] = useState({ title: '', body: '' });
+  const queryClient = useQueryClient();
+
   const { data, error, isPending, isError, isLoading, mutate, mutateAsync } =
     useMutation({
       mutationFn: async (data) => {
@@ -13,29 +14,49 @@ const UseMutation = () => {
           },
           body: JSON.stringify(data),
         });
+
+        console.log('mutationFn: ', data);
+
         return res.json();
+      },
+      onMutate: async (data) => {
+        console.log('onMutate: ', data);
+
+        await queryClient.cancelQueries({ queryKey: ['posts'] });
+        const prevPosts = queryClient.getQueryData(['posts']);
+
+        if (prevPosts) {
+          queryClient.setQueryData(['posts'], [...prevPosts, data]);
+        }
+
+        return { prevPosts };
       },
       onSuccess: (data) => {
         console.log('success', data);
-        setText({ title: data.title, body: data.body });
+        queryClient.invalidateQueries({ queryKey: ['posts'] });
       },
-      onError: (error) => {
-        console.log('error', error);
+      onError: (error, newPost, context) => {
+        console.log('error', error, newPost);
+        if (context) {
+          queryClient.setQueryData(['posts'], context.previousUsers);
+        }
       },
     });
 
-  useEffect(() => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     mutate({
       userId: 11,
       title: 'testTitle',
       body: 'testBody',
     });
-  }, []);
+  };
 
   return (
     <>
-      <div>{text.title}</div>
-      <div>{text.body}</div>
+      <form onSubmit={handleSubmit}>
+        <button type="submit">submit</button>
+      </form>
     </>
   );
 };
